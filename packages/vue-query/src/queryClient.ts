@@ -134,17 +134,19 @@ export class QueryClient extends QC {
     TError = DefaultError,
     TData = TQueryFnData,
     TQueryKey extends QueryKey = QueryKey,
+    TPageParam = never
   >(
-    options: FetchQueryOptions<TQueryFnData, TError, TData, TQueryKey>,
+    options: FetchQueryOptions<TQueryFnData, TError, TData, TQueryKey, TPageParam>,
   ): Promise<TData>
   fetchQuery<
     TQueryFnData,
     TError = DefaultError,
     TData = TQueryFnData,
     TQueryKey extends QueryKey = QueryKey,
+    TPageParam = never
   >(
     options: MaybeRefDeep<
-      FetchQueryOptions<TQueryFnData, TError, TData, TQueryKey>
+      FetchQueryOptions<TQueryFnData, TError, TData, TQueryKey, TPageParam>
     >,
   ): Promise<TData> {
     return super.fetchQuery(cloneDeepUnref(options))
